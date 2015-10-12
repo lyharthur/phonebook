@@ -7,7 +7,7 @@
 /* FILL YOUR OWN IMPLEMENTATION HERE! */
 entry *hash_table[HASH_TABLE_SIZE];
 entry *hash_entry[HASH_TABLE_SIZE];
-static inline unit32_t hash(char lastname[])
+static inline int hash(char lastname[])
 {
     int number = 0;
     while(*lastname)
