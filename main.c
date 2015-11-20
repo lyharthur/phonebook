@@ -3,7 +3,6 @@
 #include <string.h>
 #include <time.h>
 #include <assert.h>
-
 #include IMPL
 
 #define DICT_FILE "./dictionary/words.txt"
@@ -41,8 +40,8 @@ int main(int argc, char *argv[])
     pHead = (entry *) malloc(sizeof(entry));
     printf("size of entry : %lu bytes\n", sizeof(entry));
     e = pHead;
-    e->pNext = NULL;
-
+    //e->pRight = NULL;
+    //e->pLeft = NULL;
 #if defined(__GNUC__)
     __builtin___clear_cache((char *) pHead, (char *) pHead + sizeof(entry));
 #endif
@@ -82,7 +81,6 @@ int main(int argc, char *argv[])
     printf("execution time of append() : %lf sec\n", cpu_time1);
     printf("execution time of findName() : %lf sec\n", cpu_time2);
 
-    /* FIXME: release all allocated entries */
     free(pHead);
 
     return 0;

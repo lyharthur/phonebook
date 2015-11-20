@@ -23,4 +23,5 @@ typedef struct __PHONE_BOOL_ENTRY {
 
 entry *findName(char lastName[], entry *pHead);
 entry *append(char lastName[], entry *e);
+void free_struct(void *);
 #endif

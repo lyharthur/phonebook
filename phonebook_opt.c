@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include <stdlib.h>
 #include <string.h>
+#include <stdint.h>
 
 #include "phonebook_opt.h"
 
@@ -43,4 +43,20 @@ entry *append(char lastname[], entry *e)
         hash_entry[bucket] = new_element;
         return new_element;
     }
+}
+
+void free_structure(void *head)
+{
+    free(head);
+
+    for (int i = 0; i < HASH_TABLE_SIZE; i++){
+        entry *traverse = hash_table[i];
+        while (traverse){
+            entry *release_node = traverse;
+            traverse = traverse->pNext;
+            free(release_node);
+        }
+
+    }
+    return;
 }
